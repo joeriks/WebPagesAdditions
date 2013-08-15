@@ -8,7 +8,7 @@ Greatly simplifies to build json api's in a WebPages project
 
 In any WebPages project:
 
-	install-package WebPagesAdditions-BoundWebPage
+	install-package WebPagesAdditions.BoundWebPage
 
 Add a folder named /api
 
@@ -41,6 +41,14 @@ Add the following code:
            
 		}
 	}
+
+now a call to /api/persons/123 returns
+	{id:123,data:"whatever"}
+
+where a call to /api/persons returns the html
+
+and a call to /api/persons/dosomething returns
+	done something
 
 **Data binding**
 
