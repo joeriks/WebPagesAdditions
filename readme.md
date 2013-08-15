@@ -12,7 +12,7 @@ In any WebPages project:
 
 Add a folder named /api
 
-Add a resource in that folder named persons.cshtml
+Add a resource in that folder named people.cshtml
 
 Add the following code:
 
@@ -21,12 +21,12 @@ Add the following code:
 
 	<h1>Some information</h1>
 
-	<a href="/api/persons/1234">Get item # 1234</a>
-	<a href="/api/persons/dosomething">Call "dosomething"</a>
+	<a href="/api/people/1234">Get item # 1234</a>
+	<a href="/api/people/dosomething">Call "dosomething"</a>
 
 	@functions{
 
-		// returns json data on the url /api/persons/:id (int)
+		// returns json data on the url /api/people/:id (int)
 		public object GET(int id){
 
 			var someObject = new { id = id, data = "whatever" };
@@ -34,7 +34,7 @@ Add the following code:
            
 		}
 
-		// returns data on the url /api/persons/dosomething 
+		// returns data on the url /api/people/dosomething 
 		public object dosomething_GET() {
 
 			return "done something";
@@ -42,12 +42,12 @@ Add the following code:
 		}
 	}
 
-now a call to /api/persons/123 returns
+now a call to /api/people/123 returns
 	{id:123,data:"whatever"}
 
-where a call to /api/persons returns the html
+where a call to /api/people returns the html
 
-and a call to /api/persons/dosomething returns
+and a call to /api/people/dosomething returns
 	done something
 
 **Data binding**
@@ -63,7 +63,7 @@ and a call to /api/persons/dosomething returns
 
 	</form>
 
-	<a href="/rpc/dosomething/@person.Id">do it</a>
+	<a href="/api/people/dosomething/@person.Id">do it</a>
 
 	@status
 
