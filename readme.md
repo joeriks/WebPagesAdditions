@@ -2,7 +2,11 @@
 
 ToDo: suggest a better name...
 
-Greatly simplifies to build json api's in a WebPages project
+Greatly simplifies to build json api's in a WebPages project. It's only a small thing on top of the built in functionality in Asp.Net (~100 lines of code). 
+
+It's an experiment with what you can do with the simplicity of Asp.Net WebPages (aka WebPages aka Webmatrix websites).
+
+The reason for doing this (instead of using any of the other asp net based api frameworks) is I wanted to try having an api with WebPages uncompiled, "file based" approach. Add or change any resource (file) without interrupting the others or the application.
 
 **Basic usage**
 
