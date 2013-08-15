@@ -1,0 +1,81 @@
+﻿@inherits WebPagesAdditions.BoundWebPage
+
+<form method="post">
+
+    <input name="Id" value="@person.Id"/>
+    <input name="Age" value="@person.Age"/>
+    <input name="Name" value="@person.Name"/>
+    <input type="submit" />
+
+</form>
+
+<a href="/rpc/dosomething/@person.Id">do it</a>
+
+@status
+
+@functions{
+
+    // define the viewmodel within the script itself
+
+    Person person;
+    string status = "";
+
+    class Person
+    {
+        public int Id { get; set; }        
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Name { get; set; }        
+        public int Age { get; set; }
+
+    }
+    
+    
+
+    // for all requests
+    public void init()
+    {
+        person = Bind(new Person());
+    }
+
+    // runs only if the url is /:id (int) and method = get
+    public object GET(int id)
+    {
+        // Bind is using the default asp net data binding
+        person = Bind(new Person { Id = id });
+        return person;
+    }
+
+    // runs only if the url is / and method = post
+    public void POST()
+    {
+        if (ModelState.IsValid)
+        {
+            // post to repo        
+            status = "Valid post";
+        } else {
+            status = "Invalid post, check binder for more info :-p";
+        }
+    }
+
+    // runs if the url is /dosomething/:id (int) 
+    public object dosomething_GET(int id)
+    {
+        person = Bind(new Person { Id = id });
+        return "do something GET for id: " + id;
+    }
+
+    // runs if the url is /dosomething/:id (int)/:name (string)
+    public object dosomething_GET(int id, string name)
+    {
+        person = Bind(new Person { Id = id, Name = name });
+        return "do something GET for id: " + id + " and name: " + name;
+    }
+
+    protected override void InitializePage()
+    {
+        base.InitializePage();
+        //Response.End();
+        
+    }
+
+}
