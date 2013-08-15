@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.20617.1 PREVIEW
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPagesAdditions", "WebPagesAdditions\WebPagesAdditions.csproj", "{006B545B-2A55-4390-B6F1-01BEE1AD402A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPagesAdditions.BoundWebPage", "WebPagesAdditions\WebPagesAdditions.BoundWebPage.csproj", "{006B545B-2A55-4390-B6F1-01BEE1AD402A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

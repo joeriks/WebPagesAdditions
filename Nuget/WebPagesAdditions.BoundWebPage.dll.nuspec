@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>WebPagesAdditions.BoundWebPage</id>
+    <version>0.4.0</version>
+    <authors>joeriks</authors>
+    <owners>joeriks</owners>
+    <projectUrl>https://github.com/joeriks/WebPagesAdditions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Url and data bindings for WebPages Razor pages</description>
+    <releaseNotes>First public version. Beta.</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>WebPages Razor WebMatrix</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+</package>

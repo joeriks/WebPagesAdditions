@@ -16,7 +16,7 @@ namespace WebPagesAdditions
     {
 
         public ModelBinderWrapper Binder;
-        public ModelStateDictionary ModelState { get; set; }
+        public ModelStateDictionary ModelState { get; set; }        
 
         public BoundWebPage()
         {
@@ -31,13 +31,17 @@ namespace WebPagesAdditions
             return model;
         }
 
-        bool tryInvoke(string methodName, object[] args, bool writeToResponse = false, bool endResponse = false)
+        bool tryInvoke(string methodName, object[] args)
         {
             object result;
             if (tryInvoke(methodName, args, out result))
             {
-                if (writeToResponse) Response.Write(Json.Encode(result));
-                if (endResponse) Response.End();
+
+                if (result != null)
+                {
+                    Response.Write(Json.Encode(result));
+                    Response.End();
+                }
                 return true;
             }
             else
@@ -77,12 +81,12 @@ namespace WebPagesAdditions
 
             var writeToResponse = (IsAjax || Request["isajax"] == "1");
 
-            if (tryInvoke(methodName, urlArgsSkipFirst, writeToResponse, writeToResponse)) return;
+            if (tryInvoke(methodName, urlArgsSkipFirst)) return;
 
             var methodName_httpMethod = methodName + "_" + httpMethod;
-            if (tryInvoke(methodName_httpMethod, urlArgsSkipFirst, writeToResponse, writeToResponse)) return;
+            if (tryInvoke(methodName_httpMethod, urlArgsSkipFirst)) return;
 
-            if (tryInvoke(httpMethod, urlArgsAll, writeToResponse, writeToResponse)) return;
+            if (tryInvoke(httpMethod, urlArgsAll)) return;
 
 
         }
