@@ -17,38 +17,30 @@ Add a resource in that folder named people.cshtml
 Add the following code:
 
 	@inherits WebPagesAdditions.BoundWebPage
-	@* The HTML is only returned for non matching calls for data *@
-
-	<h1>Some information</h1>
-
-	<a href="/api/people/1234">Get item # 1234</a>
-	<a href="/api/people/dosomething">Call "dosomething"</a>
-
 	@functions{
 
 		// returns json data on the url /api/people/:id (int)
 		public object GET(int id){
-
 			var someObject = new { id = id, data = "whatever" };
-			return someObject;
-           
+			return someObject;           
 		}
 
 		// returns data on the url /api/people/dosomething 
 		public object dosomething_GET() {
-
-			return "done something";
-           
+			return "done something";           
 		}
 	}
 
 now a call to /api/people/123 returns
+
 	{id:123,data:"whatever"}
 
-where a call to /api/people returns the html
-
 and a call to /api/people/dosomething returns
+
 	done something
+
+where a call to /api/people would return the html (if any)
+
 
 **Data binding**
 
