@@ -110,3 +110,23 @@ and a call to /api/persons/dosomething returns
 		}
 
 	}
+
+** Function naming convnetions **
+
+init() runs first on all requests
+
+then the functions should be named:
+
+1) by http method (upper case)
+2) by resource a underscore and http method
+
+with signatures with integer and or string parameters
+
+GET() responds to GET requests to resource root
+POST() responds to POST requests to resource root
+
+anything_GET() responds to GET requests to /anything
+
+GET(id:int) responds to GET requests to resource root /:id (int)
+GET(id:string) responds to GET requests to resource root /:id (string)
+
